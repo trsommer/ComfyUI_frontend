@@ -37,6 +37,9 @@ const config: KnipConfig = {
         'src/styles/global.css'
       ],
       project: ['src/**/*.{astro,vue,ts}', '*.{js,ts,mjs}']
+    },
+    'tools/test-recorder': {
+      project: ['src/**/*.ts']
     }
   },
   ignoreBinaries: ['python3'],
