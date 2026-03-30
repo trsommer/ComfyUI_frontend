@@ -39,6 +39,7 @@ const config: KnipConfig = {
       project: ['src/**/*.{astro,vue,ts}', '*.{js,ts,mjs}']
     },
     'tools/test-recorder': {
+      entry: ['src/index.ts'],
       project: ['src/**/*.ts']
     }
   },
