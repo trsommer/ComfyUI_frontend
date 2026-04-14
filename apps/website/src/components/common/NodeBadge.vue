@@ -1,7 +1,19 @@
 <script setup lang="ts">
-const { segments, segmentClass = 'px-6' } = defineProps<{
-  segments: Array<{ text?: string; logoSrc?: string; logoAlt?: string }>
+export interface NodeBadgeSegment {
+  text?: string
+  logoSrc?: string
+  logoAlt?: string
+  class?: string
+}
+
+const {
+  segments,
+  segmentClass = 'px-6',
+  unionSrc = '/icons/node-union.svg'
+} = defineProps<{
+  segments: NodeBadgeSegment[]
   segmentClass?: string
+  unionSrc?: string
 }>()
 </script>
 
@@ -19,14 +31,14 @@ const { segments, segmentClass = 'px-6' } = defineProps<{
     <template v-for="(segment, i) in segments" :key="i">
       <img
         v-if="i > 0"
-        src="/icons/node-union.svg"
+        :src="unionSrc"
         alt=""
         class="-mx-px self-stretch"
         aria-hidden="true"
       />
       <span
         class="bg-primary-comfy-yellow text-primary-comfy-ink flex items-center justify-center py-1 lg:py-5"
-        :class="segmentClass"
+        :class="[segmentClass, segment.class]"
       >
         <img
           v-if="segment.logoSrc"

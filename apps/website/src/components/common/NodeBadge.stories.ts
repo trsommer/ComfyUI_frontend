@@ -8,8 +8,7 @@ const meta: Meta<typeof NodeBadge> = {
   tags: ['autodocs'],
   decorators: [
     () => ({
-      template:
-        '<div class="bg-primary-comfy-ink p-8"><story /></div>'
+      template: '<div class="bg-primary-comfy-ink p-8"><story /></div>'
     })
   ]
 }
@@ -32,8 +31,30 @@ export const MultipleSegments: Story = {
 export const WithLogo: Story = {
   args: {
     segments: [
-      { logoSrc: '/logos/comfy-logo.svg', logoAlt: 'Comfy Logo' },
+      { logoSrc: '/icons/logo.svg', logoAlt: 'Comfy' },
       { text: 'NODES' }
+    ]
+  }
+}
+
+export const ComfyLocal: Story = {
+  args: {
+    segments: [
+      { logoSrc: '/icons/logo.svg', logoAlt: 'Comfy' },
+      { text: 'LOCAL' }
+    ]
+  }
+}
+
+export const WithCustomSegmentClass: Story = {
+  args: {
+    segments: [
+      {
+        logoSrc: '/icons/logo.svg',
+        logoAlt: 'Comfy',
+        class: 'lg:py-8 lg:px-10'
+      },
+      { text: 'LOCAL' }
     ]
   }
 }
