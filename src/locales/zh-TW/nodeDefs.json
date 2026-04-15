@@ -472,6 +472,137 @@
       }
     }
   },
+  "ByteDance2FirstLastFrameNode": {
+    "description": "使用 Seedance 2.0，從首張影格圖片與可選的尾張影格圖片產生影片。",
+    "display_name": "ByteDance Seedance 2.0 首尾影格轉影片",
+    "inputs": {
+      "control_after_generate": {
+        "name": "產生後控制"
+      },
+      "first_frame": {
+        "name": "首張影格",
+        "tooltip": "影片的首張影格圖片。"
+      },
+      "last_frame": {
+        "name": "尾張影格",
+        "tooltip": "影片的尾張影格圖片。"
+      },
+      "model": {
+        "name": "模型",
+        "tooltip": "Seedance 2.0 提供最佳品質；Seedance 2.0 Fast 提供速度優化。"
+      },
+      "model_duration": {
+        "name": "時長"
+      },
+      "model_generate_audio": {
+        "name": "產生音訊"
+      },
+      "model_prompt": {
+        "name": "提示詞"
+      },
+      "model_ratio": {
+        "name": "比例"
+      },
+      "model_resolution": {
+        "name": "解析度"
+      },
+      "seed": {
+        "name": "種子",
+        "tooltip": "種子控制此節點是否重新執行；無論種子為何，結果皆為非決定性。"
+      },
+      "watermark": {
+        "name": "浮水印",
+        "tooltip": "是否在影片中加入浮水印。"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
+  "ByteDance2ReferenceNode": {
+    "description": "使用 Seedance 2.0，透過參考圖片、影片與音訊產生、編輯或延伸影片。支援多模態參考、影片編輯與影片延伸。",
+    "display_name": "ByteDance Seedance 2.0 參考轉影片",
+    "inputs": {
+      "control_after_generate": {
+        "name": "產生後控制"
+      },
+      "model": {
+        "name": "模型",
+        "tooltip": "Seedance 2.0 提供最佳品質；Seedance 2.0 Fast 提供速度優化。"
+      },
+      "model_duration": {
+        "name": "時長"
+      },
+      "model_generate_audio": {
+        "name": "產生音訊"
+      },
+      "model_prompt": {
+        "name": "提示詞"
+      },
+      "model_ratio": {
+        "name": "比例"
+      },
+      "model_resolution": {
+        "name": "解析度"
+      },
+      "seed": {
+        "name": "種子",
+        "tooltip": "種子控制此節點是否重新執行；無論種子為何，結果皆為非決定性。"
+      },
+      "watermark": {
+        "name": "浮水印",
+        "tooltip": "是否在影片中加入浮水印。"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
+  "ByteDance2TextToVideoNode": {
+    "description": "根據文字提示，使用 Seedance 2.0 模型產生影片。",
+    "display_name": "ByteDance Seedance 2.0 文字轉影片",
+    "inputs": {
+      "control_after_generate": {
+        "name": "產生後控制"
+      },
+      "model": {
+        "name": "模型",
+        "tooltip": "Seedance 2.0 提供最佳品質；Seedance 2.0 Fast 提供速度優化。"
+      },
+      "model_duration": {
+        "name": "時長"
+      },
+      "model_generate_audio": {
+        "name": "產生音訊"
+      },
+      "model_prompt": {
+        "name": "提示詞"
+      },
+      "model_ratio": {
+        "name": "比例"
+      },
+      "model_resolution": {
+        "name": "解析度"
+      },
+      "seed": {
+        "name": "種子",
+        "tooltip": "種子控制此節點是否重新執行；無論種子為何，結果皆為非決定性。"
+      },
+      "watermark": {
+        "name": "浮水印",
+        "tooltip": "是否在影片中加入浮水印。"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
   "ByteDanceFirstLastFrameNode": {
     "description": "使用提示詞和首尾幀生成影片。",
     "display_name": "字節跳動首尾幀轉影片",
@@ -14753,6 +14884,58 @@
       },
       "width": {
         "name": "寬度"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
+  "SoniloTextToMusic": {
+    "description": "使用 Sonilo 的 AI 模型，根據文字提示生成音樂。將時長設為 0 可讓模型根據提示自動推斷時長。",
+    "display_name": "Sonilo 文字轉音樂",
+    "inputs": {
+      "control_after_generate": {
+        "name": "生成後控制"
+      },
+      "duration": {
+        "name": "時長",
+        "tooltip": "目標時長（秒）。設為 0 可讓模型根據提示自動推斷時長。最長 6 分鐘。"
+      },
+      "prompt": {
+        "name": "提示詞",
+        "tooltip": "描述要生成音樂的文字提示。"
+      },
+      "seed": {
+        "name": "種子",
+        "tooltip": "用於重現性的種子。目前 Sonilo 服務會忽略此項，但為了流程圖一致性而保留。"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
+  "SoniloVideoToMusic": {
+    "description": "使用 Sonilo 的 AI 模型，從影片內容生成音樂。分析影片並創作相符的音樂。",
+    "display_name": "Sonilo 影片轉音樂",
+    "inputs": {
+      "control_after_generate": {
+        "name": "生成後控制"
+      },
+      "prompt": {
+        "name": "提示詞",
+        "tooltip": "可選的文字提示，用於引導音樂生成。留空可獲得最佳品質——模型將完全分析影片內容。"
+      },
+      "seed": {
+        "name": "種子",
+        "tooltip": "用於重現性的種子。目前 Sonilo 服務會忽略此項，但為了流程圖一致性而保留。"
+      },
+      "video": {
+        "name": "影片",
+        "tooltip": "要生成音樂的輸入影片。最長 6 分鐘。"
       }
     },
     "outputs": {

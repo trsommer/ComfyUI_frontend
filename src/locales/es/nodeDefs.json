@@ -472,6 +472,137 @@
       }
     }
   },
+  "ByteDance2FirstLastFrameNode": {
+    "description": "Genera un video usando Seedance 2.0 a partir de una imagen del primer fotograma y, opcionalmente, una imagen del último fotograma.",
+    "display_name": "ByteDance Seedance 2.0 Primer-Último Fotograma a Video",
+    "inputs": {
+      "control_after_generate": {
+        "name": "controlar después de generar"
+      },
+      "first_frame": {
+        "name": "primer_fotograma",
+        "tooltip": "Imagen del primer fotograma para el video."
+      },
+      "last_frame": {
+        "name": "último_fotograma",
+        "tooltip": "Imagen del último fotograma para el video."
+      },
+      "model": {
+        "name": "modelo",
+        "tooltip": "Seedance 2.0 para máxima calidad; Seedance 2.0 Fast para optimización de velocidad."
+      },
+      "model_duration": {
+        "name": "duración"
+      },
+      "model_generate_audio": {
+        "name": "generar_audio"
+      },
+      "model_prompt": {
+        "name": "prompt"
+      },
+      "model_ratio": {
+        "name": "relación"
+      },
+      "model_resolution": {
+        "name": "resolución"
+      },
+      "seed": {
+        "name": "semilla",
+        "tooltip": "La semilla controla si el nodo debe ejecutarse de nuevo; los resultados son no deterministas independientemente de la semilla."
+      },
+      "watermark": {
+        "name": "marca_de_agua",
+        "tooltip": "Indica si se debe añadir una marca de agua al video."
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
+  "ByteDance2ReferenceNode": {
+    "description": "Genera, edita o extiende video usando Seedance 2.0 con imágenes de referencia, videos y audio. Soporta referencia multimodal, edición de video y extensión de video.",
+    "display_name": "ByteDance Seedance 2.0 Referencia a Video",
+    "inputs": {
+      "control_after_generate": {
+        "name": "controlar después de generar"
+      },
+      "model": {
+        "name": "modelo",
+        "tooltip": "Seedance 2.0 para máxima calidad; Seedance 2.0 Fast para optimización de velocidad."
+      },
+      "model_duration": {
+        "name": "duración"
+      },
+      "model_generate_audio": {
+        "name": "generar_audio"
+      },
+      "model_prompt": {
+        "name": "prompt"
+      },
+      "model_ratio": {
+        "name": "relación"
+      },
+      "model_resolution": {
+        "name": "resolución"
+      },
+      "seed": {
+        "name": "semilla",
+        "tooltip": "La semilla controla si el nodo debe ejecutarse de nuevo; los resultados son no deterministas independientemente de la semilla."
+      },
+      "watermark": {
+        "name": "marca_de_agua",
+        "tooltip": "Indica si se debe añadir una marca de agua al video."
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
+  "ByteDance2TextToVideoNode": {
+    "description": "Genera video usando modelos Seedance 2.0 a partir de un prompt de texto.",
+    "display_name": "ByteDance Seedance 2.0 Texto a Video",
+    "inputs": {
+      "control_after_generate": {
+        "name": "controlar después de generar"
+      },
+      "model": {
+        "name": "modelo",
+        "tooltip": "Seedance 2.0 para máxima calidad; Seedance 2.0 Fast para optimización de velocidad."
+      },
+      "model_duration": {
+        "name": "duración"
+      },
+      "model_generate_audio": {
+        "name": "generar_audio"
+      },
+      "model_prompt": {
+        "name": "prompt"
+      },
+      "model_ratio": {
+        "name": "relación"
+      },
+      "model_resolution": {
+        "name": "resolución"
+      },
+      "seed": {
+        "name": "semilla",
+        "tooltip": "La semilla controla si el nodo debe ejecutarse de nuevo; los resultados son no deterministas independientemente de la semilla."
+      },
+      "watermark": {
+        "name": "marca_de_agua",
+        "tooltip": "Indica si se debe añadir una marca de agua al video."
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
   "ByteDanceFirstLastFrameNode": {
     "description": "Generar video usando prompt y primer y último fotograma.",
     "display_name": "ByteDance Primer-Último-Fotograma a Video",
@@ -14753,6 +14884,58 @@
       },
       "width": {
         "name": "ancho"
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
+  "SoniloTextToMusic": {
+    "description": "Genera música a partir de un texto usando el modelo de IA de Sonilo. Deja la duración en 0 para que el modelo la infiera del texto.",
+    "display_name": "Sonilo Texto a Música",
+    "inputs": {
+      "control_after_generate": {
+        "name": "control after generate"
+      },
+      "duration": {
+        "name": "duration",
+        "tooltip": "Duración objetivo en segundos. Pon 0 para que el modelo infiera la duración a partir del texto. Máximo: 6 minutos."
+      },
+      "prompt": {
+        "name": "prompt",
+        "tooltip": "Texto que describe la música a generar."
+      },
+      "seed": {
+        "name": "seed",
+        "tooltip": "Semilla para reproducibilidad. Actualmente ignorada por el servicio de Sonilo, pero se mantiene para la consistencia del grafo."
+      }
+    },
+    "outputs": {
+      "0": {
+        "tooltip": null
+      }
+    }
+  },
+  "SoniloVideoToMusic": {
+    "description": "Genera música a partir de contenido de video usando el modelo de IA de Sonilo. Analiza el video y crea música acorde.",
+    "display_name": "Sonilo Video a Música",
+    "inputs": {
+      "control_after_generate": {
+        "name": "control after generate"
+      },
+      "prompt": {
+        "name": "prompt",
+        "tooltip": "Texto opcional para guiar la generación musical. Déjalo vacío para mejor calidad: el modelo analizará completamente el contenido del video."
+      },
+      "seed": {
+        "name": "seed",
+        "tooltip": "Semilla para reproducibilidad. Actualmente ignorada por el servicio de Sonilo, pero se mantiene para la consistencia del grafo."
+      },
+      "video": {
+        "name": "video",
+        "tooltip": "Video de entrada del que generar música. Duración máxima: 6 minutos."
       }
     },
     "outputs": {
